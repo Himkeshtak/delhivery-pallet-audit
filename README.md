@@ -4,7 +4,7 @@ A fail-safe reference implementation for the Delhivery Computer Vision assignmen
 
 The research-backed model selection, paper comparison, and experiment gates are in [docs/RESEARCH_AND_MODEL_SELECTION.md](docs/RESEARCH_AND_MODEL_SELECTION.md).
 
-> **Submission status:** the geometry, output contract, versioned synthetic dataset, trained synthetic pose weights, evaluation, sensitivity analysis, and tests are implemented. Real warehouse data, physical calibration images, trained production load/damage weights, Jetson measurements and the screen recording remain unavailable. Synthetic results are clearly scoped and are never presented as warehouse performance.
+> **Submission status:** the geometry, output contract, versioned synthetic dataset, trained synthetic pose and load-segmentation weights, evaluation, sensitivity tooling, and tests are implemented. Real warehouse data, physical calibration images, production-qualified damage inference, Jetson measurements and the screen recording remain unavailable. Synthetic results are clearly scoped and are never presented as warehouse performance.
 
 ## Quick start
 
@@ -78,6 +78,15 @@ No warehouse test set was supplied or captured, so no real-world accuracy is cla
 
 The weight is `weights/pallet_pose_yolo11n_synthetic_v1.pt`; complete provenance and distributions are in `reports/pose_model/`. The result demonstrates why OKS/AP cannot replace metric pose evaluation: the model does **not** clear the assignment bar on most shifted-domain samples.
 
+A YOLO11n-seg baseline was also fine-tuned on all 240 synthetic training images
+and tested on the 60 shifted images. Its aggregate mask mAP50-95 is 0.197. The
+model learned pallet masks (0.709) and a moderate box mask baseline (0.464), but
+load masks (0.006), wrap masks (0.000), and both damage classes (0.000) are not
+operational. The committed weight is
+`weights/load_seg_yolo11n_synthetic_v1.pt`; the complete class-wise result and
+provenance are in `reports/load_seg_model/`. Missing damage detections remain
+`manual_inspection`, never a pass.
+
 Distribution tooling remains executable for future real records:
 
 ```bash
@@ -101,9 +110,9 @@ Exact errors and predictions are committed in `reports/pose_model/`. Real wareho
 
 ## 4. What could not be finished and why
 
-- Real dataset and production weights: a synthetic dataset and pose checkpoint are included, but target-scene capture is essential for operational evaluation.
+- Real dataset and production weights: synthetic pose and segmentation checkpoints are included, but target-scene capture is essential for operational evaluation.
 - Calibration artefacts/reprojection error: requires the physical camera and board images. The repository defines the required process in [docs/CALIBRATION.md](docs/CALIBRATION.md).
-- True SOP vision models: box masks, wrap, and damage labels require collected data. The assessment logic consumes their evidence without claiming it exists.
+- Production SOP vision: the synthetic segmenter provides an inspectable baseline, but its class-wise test result rejects load/wrap masks and damage inference. The assessment logic safely abstains for unsupported evidence.
 - Jetson Orin Nano latency/quantization: no target hardware or exported weights were available. No third-party benchmark is presented as measured performance.
 - Five-minute recording: it requires the final trained run and the submitter's narration.
 

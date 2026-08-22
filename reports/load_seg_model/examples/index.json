@@ -1,0 +1,112 @@
+[
+  {
+    "source": "data/load_seg/images/test/test_0000.jpg",
+    "render": "reports/load_seg_model/examples/example_1.jpg",
+    "detections": [
+      {
+        "class": "box",
+        "confidence": 0.970806
+      },
+      {
+        "class": "box",
+        "confidence": 0.970695
+      },
+      {
+        "class": "box",
+        "confidence": 0.949818
+      },
+      {
+        "class": "box",
+        "confidence": 0.949477
+      },
+      {
+        "class": "box",
+        "confidence": 0.920899
+      },
+      {
+        "class": "box",
+        "confidence": 0.908487
+      },
+      {
+        "class": "load",
+        "confidence": 0.889054
+      },
+      {
+        "class": "pallet",
+        "confidence": 0.804912
+      },
+      {
+        "class": "box",
+        "confidence": 0.297364
+      },
+      {
+        "class": "stretch_wrap",
+        "confidence": 0.26465
+      }
+    ]
+  },
+  {
+    "source": "data/load_seg/images/test/test_0030.jpg",
+    "render": "reports/load_seg_model/examples/example_2.jpg",
+    "detections": [
+      {
+        "class": "box",
+        "confidence": 0.926131
+      },
+      {
+        "class": "pallet",
+        "confidence": 0.903799
+      },
+      {
+        "class": "box",
+        "confidence": 0.870519
+      },
+      {
+        "class": "load",
+        "confidence": 0.775214
+      }
+    ]
+  },
+  {
+    "source": "data/load_seg/images/test/test_0059.jpg",
+    "render": "reports/load_seg_model/examples/example_3.jpg",
+    "detections": [
+      {
+        "class": "box",
+        "confidence": 0.974495
+      },
+      {
+        "class": "box",
+        "confidence": 0.965282
+      },
+      {
+        "class": "box",
+        "confidence": 0.948985
+      },
+      {
+        "class": "box",
+        "confidence": 0.934871
+      },
+      {
+        "class": "pallet",
+        "confidence": 0.890936
+      },
+      {
+        "class": "box",
+        "confidence": 0.857185
+      },
+      {
+        "class": "box",
+        "confidence": 0.821153
+      },
+      {
+        "class": "box",
+        "confidence": 0.712762
+      },
+      {
+        "class": "box",
+        "confidence": 0.701176
+      }
+    ]
+  }
+]

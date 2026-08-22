@@ -1,0 +1,89 @@
+{
+  "scope": "dataset=data\\load_seg.yaml, split=test; obey that dataset's claim scope",
+  "weights": "weights\\load_seg_yolo11n_synthetic_v1.pt",
+  "results": {
+    "metrics/precision(B)": 0.9164373017440189,
+    "metrics/recall(B)": 0.6550387596899224,
+    "metrics/mAP50(B)": 0.6437272755642373,
+    "metrics/mAP50-95(B)": 0.5986493461268114,
+    "metrics/precision(M)": 0.6721273029699435,
+    "metrics/recall(M)": 0.34667832167832163,
+    "metrics/mAP50(M)": 0.3211027808048883,
+    "metrics/mAP50-95(M)": 0.19655299525151707,
+    "fitness": 0.8121651128774082
+  },
+  "speed_ms_per_image": {
+    "preprocess": 0.3749366665336614,
+    "inference": 37.32453666646809,
+    "loss": 0.0002516666427254677,
+    "postprocess": 7.458043332250478
+  },
+  "per_class": {
+    "pallet": {
+      "box_precision": 0.9860157410537452,
+      "box_recall": 1.0,
+      "box_map50": 0.995,
+      "box_map50_95": 0.9082702525492184,
+      "mask_precision": 0.9960083166259737,
+      "mask_recall": 1.0,
+      "mask_map50": 0.995,
+      "mask_map50_95": 0.7093268894258948
+    },
+    "load": {
+      "box_precision": 0.9768965992227586,
+      "box_recall": 1.0,
+      "box_map50": 0.995,
+      "box_map50_95": 0.9465881523164151,
+      "mask_precision": 0.149935558922982,
+      "mask_recall": 0.15,
+      "mask_map50": 0.02751391611857633,
+      "mask_map50_95": 0.005862350413797979
+    },
+    "box": {
+      "box_precision": 0.814905644279901,
+      "box_recall": 1.0,
+      "box_map50": 0.9934481306119515,
+      "box_map50_95": 0.9039038620677251,
+      "mask_precision": 0.8868199422707055,
+      "mask_recall": 0.9300699300699301,
+      "mask_map50": 0.9041027687107533,
+      "mask_map50_95": 0.4641287316694096
+    },
+    "stretch_wrap": {
+      "box_precision": 0.7208058259077089,
+      "box_recall": 0.9302325581395349,
+      "box_map50": 0.8789155227734715,
+      "box_map50_95": 0.8331338098275097,
+      "mask_precision": 0.0,
+      "mask_recall": 0.0,
+      "mask_map50": 0.0,
+      "mask_map50_95": 0.0
+    },
+    "visible_box_damage": {
+      "box_precision": 1.0,
+      "box_recall": 0.0,
+      "box_map50": 0.0,
+      "box_map50_95": 0.0,
+      "mask_precision": 1.0,
+      "mask_recall": 0.0,
+      "mask_map50": 0.0,
+      "mask_map50_95": 0.0
+    },
+    "visible_pallet_damage": {
+      "box_precision": 1.0,
+      "box_recall": 0.0,
+      "box_map50": 0.0,
+      "box_map50_95": 0.0,
+      "mask_precision": 1.0,
+      "mask_recall": 0.0,
+      "mask_map50": 0.0,
+      "mask_map50_95": 0.0
+    }
+  },
+  "runtime": {
+    "torch": "2.8.0+cpu",
+    "ultralytics": "8.3.179",
+    "device": "cpu",
+    "imgsz": 256
+  }
+}

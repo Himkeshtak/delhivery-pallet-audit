@@ -9,7 +9,7 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 | Dataset in a standard format | Complete, synthetic-only | Committed `synthetic-v1`: 360 images, COCO keypoints and separate YOLO pose/segmentation labels. Real warehouse data remains absent. |
 | Annotation tooling | Complete | `tools/generate_synthetic.py`, `tools/coco_to_yolo_pose.py`, COCO keypoint convention and labelling guide. SAM 2 is specified for offline propagation. |
 | Source, cost, counts, split, guideline, biases | Complete for synthetic-v1 | `DATASET.md` and `data/dataset_manifest.json`; real count is explicitly zero. |
-| Trained model and weights | Partial | YOLO11n pose checkpoint is committed; load segmentation and damage models remain pending. |
+| Trained model and weights | Complete, synthetic-only | Committed YOLO11n pose and six-class segmentation checkpoints. Class-wise testing rejects the damage heads for operational use. |
 | Detection/localisation held-out distributions | Complete, synthetic-only | `reports/pose_model/`: separate AP, pixel keypoint error, metric translation/rotation and predictions. |
 | Training decisions and reasoning | Complete | `README.md` and `docs/RESEARCH_AND_MODEL_SELECTION.md`. |
 | Accuracy ceiling and improvements | Complete | `DATASET.md`. |
@@ -31,7 +31,7 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 | Deliverable | Status | Evidence / completion condition |
 |---|---|---|
 | Eight-check observability triage | Complete | README SOP table. |
-| Implement verifiable subset | Complete as evidence layer | Metric overhang, height, box angle, centroid, wrap/damage evidence interfaces and fail-safe abstention. Learned mask/damage weights remain missing. |
+| Implement verifiable subset | Complete as synthetic baseline | Metric overhang, height, box angle, centroid, wrap/damage evidence interfaces and fail-safe abstention. The trained segmentation baseline has zero held-out AP on damage, so damage remains manual. |
 | Per-check confidence | Complete | Every check emits confidence, measurements and reason. |
 | Pass/fail/manual verdict and weighting | Complete | `compliance.py`; pose failure forces manual review and reliable high-confidence failures dominate. |
 
@@ -50,9 +50,9 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 | Deliverable | Status | Evidence / completion condition |
 |---|---|---|
 | One assessment per pallet | Complete | CLI, `schemas/assessment.schema.json`, example request/output path. |
-| README required sections | Structurally complete | Real result plots and three actual worst-case images remain unavailable. |
+| README required sections | Complete for synthetic scope | Measured pose/segmentation results and three actual shifted-test pose failures are included. Real failures remain unavailable. |
 | Dataset | Complete, synthetic-only | Versioned generator, manifest, COCO and YOLO artefacts are committed. Real validation is still required for operational claims. |
-| Trained weights or link | Partial | Synthetic YOLO11n pose weight is committed; load/damage weights remain pending. |
+| Trained weights or link | Complete, synthetic-only | Synthetic YOLO11n pose and six-class load-segmentation weights are committed. The damage classes explicitly fail the acceptance gate. |
 | Five-minute screen recording | Missing, requires submitter | A recording runbook can be produced; the submitter must record the final trained pipeline and narration. |
 
 ## Current completion conclusion
