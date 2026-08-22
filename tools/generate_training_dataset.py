@@ -83,7 +83,7 @@ def render_sample(rng: random.Random, domain: str,
                   sample_id: int) -> tuple[Image.Image, dict, list[str]]:
     image = background(rng, domain)
     draw = ImageDraw.Draw(image)
-    cx, cy = rng.uniform(105, 215), rng.uniform(184, 218)
+    cx, cy = rng.uniform(105, 215), rng.uniform(183, 190)
     width, depth = rng.uniform(92, 132), rng.uniform(38, 58)
     angle = math.radians(rng.uniform(-38, 38))
     pallet = rotated_rect(cx, cy, width, depth, angle)

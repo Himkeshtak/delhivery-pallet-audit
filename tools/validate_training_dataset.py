@@ -26,9 +26,15 @@ def validate(root: Path) -> dict:
             fields = label.read_text(encoding="utf-8").split()
             if len(fields) != 17:
                 raise ValueError(f"pose label must have 17 fields: {label}")
-            numbers = [float(value) for value in fields[1:]]
-            if any(value < 0 or value > 2 for value in numbers):
-                raise ValueError(f"pose value out of expected range: {label}")
+            bbox_values = [float(value) for value in fields[1:5]]
+            if any(value < 0 or value > 1 for value in bbox_values):
+                raise ValueError(f"pose box outside [0,1]: {label}")
+            for index in range(5, 17, 3):
+                x, y, visibility = map(float, fields[index:index + 3])
+                if x < 0 or x > 1 or y < 0 or y > 1:
+                    raise ValueError(f"pose keypoint outside [0,1]: {label}")
+                if visibility not in (0, 1, 2):
+                    raise ValueError(f"invalid COCO visibility: {label}")
             digest = hashlib.sha256(image.read_bytes()).hexdigest()
             if digest in hashes:
                 raise ValueError(f"duplicate image crosses dataset rows: {image}")
@@ -53,4 +59,3 @@ if __name__ == "__main__":
     parser.add_argument("root", type=Path, nargs="?", default=Path("data"))
     args = parser.parse_args()
     print(json.dumps(validate(args.root), indent=2))
-

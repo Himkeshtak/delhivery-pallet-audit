@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import platform
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -20,6 +21,11 @@ def main() -> None:
     parser.add_argument("--project", default="runs")
     parser.add_argument("--name", default=None)
     parser.add_argument("--seed", type=int, default=7)
+    parser.add_argument("--workers", type=int, default=0)
+    parser.add_argument("--patience", type=int, default=30)
+    parser.add_argument("--fraction", type=float, default=1.0)
+    parser.add_argument("--cache", action="store_true")
+    parser.add_argument("--amp", action="store_true")
     args = parser.parse_args()
     try:
         import ultralytics
@@ -29,9 +35,12 @@ def main() -> None:
 
     run_name = args.name or f"{args.task}-{Path(args.model).stem}"
     model = YOLO(args.model, task=args.task)
+    started = time.perf_counter()
     model.train(data=args.data, epochs=args.epochs, imgsz=args.imgsz, batch=args.batch,
                 device=args.device, project=args.project, name=run_name, seed=args.seed,
-                deterministic=True, plots=True, patience=30)
+                deterministic=True, plots=True, patience=args.patience, workers=args.workers,
+                cache=args.cache, amp=args.amp, fraction=args.fraction)
+    elapsed_s = time.perf_counter() - started
     run_dir = Path(args.project) / run_name
     provenance = {
         "created_at": datetime.now(timezone.utc).isoformat(), "task": args.task,
@@ -39,6 +48,8 @@ def main() -> None:
         "epochs": args.epochs, "imgsz": args.imgsz, "batch": args.batch,
         "seed": args.seed, "platform": platform.platform(),
         "ultralytics_version": ultralytics.__version__,
+        "workers": args.workers, "amp": args.amp, "fraction": args.fraction,
+        "elapsed_seconds": elapsed_s, "claim_scope": "measured on the platform field above",
     }
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "provenance.json").write_text(json.dumps(provenance, indent=2), encoding="utf-8")
@@ -46,4 +57,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
