@@ -2,19 +2,25 @@
 
 ## Sources and rationale
 
-No third-party images are committed because license and access were not supplied. The planned dataset has three auditable sources: (1) target-camera captures from multiple warehouse sessions for geometry and deployment realism; (2) permissively licensed public pallet/box datasets for appearance breadth; (3) staged failure cases for rare SOP violations. Every image receives `source`, `license`, `capture_session`, `site`, `camera_id`, and consent fields in a manifest.
+The committed `synthetic-v1` dataset is generated entirely by `tools/generate_training_dataset.py` under this repository's MIT license. It contains procedural warehouse floors, pallet geometry, box stacks, wrap, visible damage, corner occlusion, noise, blur and glare. It supplies exact ordered keypoints and a known image-to-floor transform without third-party copyright ambiguity.
+
+No third-party or physical warehouse images are committed because target-camera access and license-cleared downloads were not available. The next dataset revision should add: (1) target-camera captures from multiple warehouse sessions for geometry and deployment realism; (2) CC0 LOCO and/or CC BY 4.0 public pallet imagery for appearance breadth; (3) safely staged real SOP violations. Every real image must receive `source`, `license`, `capture_session`, `site`, `camera_id`, and consent fields in a manifest.
 
 The cost is deliberate: target captures require operations access and surveying, staged violations require safe setup, and license validation may exclude attractive public data. This costs speed but avoids data leakage, illegal redistribution, and a misleading ceiling based on unrelated web imagery.
 
-The included generator creates COCO-keypoints smoke-test data. It has zero real examples, zero domain validity, and must not be used for benchmark claims.
+Synthetic data costs no manual annotation but has a large reality gap. It must not be used for warehouse benchmark claims. Its purpose is to produce reproducible weights, validate the full training/evaluation pipeline and expose failure under a declared synthetic domain shift.
 
 ## Counts
 
-Current committed counts: 0 real images, 0 real pallet instances, 0 real box/damage/wrap annotations. Synthetic count is chosen by the generator CLI and reported in its `annotations.json`. Target minimum before training: 2,000 images, 4,000 pallets, at least 500 examples per reliably trained binary attribute, and at least 100 staged positives for each rare damage category. Counts must be regenerated from annotations, not copied into prose.
+Committed `synthetic-v1` counts (seed 17): 360 images and 360 pallets: 240 train, 60 validation and 60 held-out test. The generator also emits box, load, stretch-wrap and sparse visible-damage polygons. Exact machine-readable counts are in `data/dataset_manifest.json`; COCO annotations are in `data/annotations_coco.json`.
+
+Real counts remain: 0 images and 0 pallet instances. Target minimum before a warehouse claim: 2,000 real images, 4,000 pallets, at least 500 examples per reliably trained binary attribute, and at least 100 staged positives for each rare damage category. Counts must be regenerated from annotations, not copied into prose.
 
 ## Split protocol
 
-Split 70/15/15 by `(site, capture_session, camera_id)` group with no group crossing splits. The held-out test set should use a different session and, preferably, a different site/camera. Near-duplicate video frames stay in one group. Stratify groups for range, yaw, occlusion, illumination, pallet type, load height, and SOP failures. Freeze the test manifest before model selection.
+`synthetic-v1` uses 67/17/17 by generator domain. Training backgrounds/colors are randomized, validation uses an unseen fixed palette, and test uses an unseen cool/dark palette with stronger noise plus deterministic blur and glare. Test images are generated from an independent random stream and frozen in `data/dataset_manifest.json`.
+
+Real data must be split 70/15/15 by `(site, capture_session, camera_id)` group with no group crossing splits. The held-out test set should use a different session and, preferably, a different site/camera. Near-duplicate video frames stay in one group.
 
 ## One-page labelling guideline
 
@@ -37,4 +43,3 @@ Public imagery overrepresents clean product shots and frontal views. Fixed-camer
 ## Accuracy ceiling
 
 With roughly 2,000 target images, a small pose model may localize visible corners well, but the ±2 cm metric ceiling will likely be set by surveyed calibration, occlusion, and long-range projection rather than detector AP. More adjacent video frames add little. The ceiling rises through independent sites/cameras, precise surveyed ground truth, more rare conditions, temporal fusion, and a second viewpoint. It does not rise by assigning confident labels to invisible geometry.
-

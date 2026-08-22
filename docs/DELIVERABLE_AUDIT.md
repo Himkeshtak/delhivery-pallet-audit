@@ -6,9 +6,9 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 
 | Deliverable | Status | Evidence / completion condition |
 |---|---|---|
-| Dataset in a standard format | Partial | COCO generator and YOLO converter exist. A committed, versioned training dataset is not yet present. |
+| Dataset in a standard format | Complete, synthetic-only | Committed `synthetic-v1`: 360 images, COCO keypoints and separate YOLO pose/segmentation labels. Real warehouse data remains absent. |
 | Annotation tooling | Complete | `tools/generate_synthetic.py`, `tools/coco_to_yolo_pose.py`, COCO keypoint convention and labelling guide. SAM 2 is specified for offline propagation. |
-| Source, cost, counts, split, guideline, biases | Partial | `DATASET.md` covers all topics honestly; counts remain zero until dataset generation/acquisition completes. |
+| Source, cost, counts, split, guideline, biases | Complete for synthetic-v1 | `DATASET.md` and `data/dataset_manifest.json`; real count is explicitly zero. |
 | Trained model and weights | Missing | Training scripts/configs exist; no trained checkpoint has been produced. |
 | Detection/localisation held-out distributions | Missing | Evaluation tool exists; no model/test predictions yet. |
 | Training decisions and reasoning | Complete | `README.md` and `docs/RESEARCH_AND_MODEL_SELECTION.md`. |
@@ -51,11 +51,10 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 |---|---|---|
 | One assessment per pallet | Complete | CLI, `schemas/assessment.schema.json`, example request/output path. |
 | README required sections | Structurally complete | Real result plots and three actual worst-case images remain unavailable. |
-| Dataset | Missing as committed artefact | Must be generated/acquired and versioned or linked with checksum. |
+| Dataset | Complete, synthetic-only | Versioned generator, manifest, COCO and YOLO artefacts are committed. Real validation is still required for operational claims. |
 | Trained weights or link | Missing | Must train and publish checkpoints. |
 | Five-minute screen recording | Missing, requires submitter | A recording runbook can be produced; the submitter must record the final trained pipeline and narration. |
 
 ## Current completion conclusion
 
 The software design is complete, but the assignment is **not submission-complete**. The critical path is: dataset -> trained weights -> frozen-test distributions -> usable envelope -> latency/quantisation -> actual failure cases -> recording. Physical camera calibration and a real warehouse test set cannot be synthesized into truthful evidence.
-

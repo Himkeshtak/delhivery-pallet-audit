@@ -1,0 +1,11 @@
+path: D:/Delhivery Assignment/data/load_seg
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: pallet
+  1: load
+  2: box
+  3: stretch_wrap
+  4: visible_box_damage
+  5: visible_pallet_damage

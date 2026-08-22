@@ -1,0 +1,8 @@
+path: D:/Delhivery Assignment/data/pallet_pose
+train: images/train
+val: images/val
+test: images/test
+kpt_shape: [4, 3]
+flip_idx: [1, 0, 3, 2]
+names:
+  0: pallet

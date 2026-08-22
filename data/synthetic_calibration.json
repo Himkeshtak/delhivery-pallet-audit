@@ -1,0 +1,27 @@
+{
+  "calibration_id": "synthetic-affine-v1",
+  "image_size": [
+    320,
+    256
+  ],
+  "homography_image_to_floor": [
+    [
+      0.0125,
+      0.0,
+      -2.0
+    ],
+    [
+      0.0,
+      -0.0125,
+      3.2
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "reprojection_rmse_px": 0.0,
+  "units": "metres",
+  "warning": "Synthetic generator calibration; not a physical camera artefact"
+}

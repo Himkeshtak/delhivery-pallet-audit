@@ -8,7 +8,7 @@ build/
 runs/
 data/raw/
 data/processed/images/
-weights/*.pt
+weights/downloads/*.pt
 weights/*.engine
+.ultralytics/
 tmp/
-
