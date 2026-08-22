@@ -96,6 +96,14 @@ pass. The validation gate also caught that raw box-mask angles would falsely
 fail 46/60 known-aligned scenes; those values are retained as diagnostics but
 are excluded from decisions. See `reports/end_to_end/`.
 
+Deployment benchmarking used 20 warm-up plus 1,000 timed CPU iterations per
+model at 256 pixels, batch 1, and the runtime 0.05 confidence threshold. Pose
+measured 63.1 ms p50 / 88.6 ms p95 (15.46 FPS mean); segmentation measured 62.2
+ms / 99.6 ms (14.85 FPS). The documented every-third-frame segmentation cadence
+is approximately 11.48 FPS from measured mean service times, so it fails the 15
+FPS gate on this CPU. No Jetson or
+quantization result is claimed; see `reports/deployment/`.
+
 Distribution tooling remains executable for future real records:
 
 ```bash

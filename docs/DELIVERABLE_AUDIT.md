@@ -20,10 +20,10 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 |---|---|---|
 | Camera calibration artefacts and reprojection error | Pending physical camera | Protocol exists in `docs/CALIBRATION.md`; target camera/board images are unavailable. A synthetic calibration can test code but cannot substitute for this measurement. |
 | Pose method and reasoning | Complete | Calibrated floor homography, directed keypoints and propagated uncertainty in `geometry.py`. |
-| Self-constructed evaluation | Partial | Survey protocol and distribution tool exist. Needs physical surveyed placements or declared synthetic benchmark records. |
+| Self-constructed evaluation | Complete, synthetic-only | Sixty frozen shifted-test records include metric pose ground truth; physical surveyed placements remain required for real claims. |
 | Translation/rotation error distributions | Complete, synthetic-only | p50/p90/p95/p99 in `reports/pose_model/pose_test_metrics.json`; real survey evaluation remains pending. |
-| Height/tilt sensitivity, short/long range | Partial | Monte Carlo tool exists; measured camera uncertainty is unavailable. |
-| Usable envelope | Pending real data | Synthetic test joint pass rate is only 40%; no operational envelope can be declared. |
+| Height/tilt sensitivity, short/long range | Complete as assumed simulation | `reports/deployment/calibration_sensitivity.json` quantifies 1-5 m sensitivity under stated height/tilt-error assumptions; measured camera uncertainty remains unavailable. |
+| Usable envelope | Complete negative result, synthetic-only | No synthetic yaw bin passes the one-sided 95% joint-success gate; range is not present in the data, so no operational envelope is declared. |
 | Unreliable-pose output | Complete | Explicit `reliable=false`, uncertainty, reason and manual-inspection verdict. |
 
 ## Section 3 - Load analysis and SOP (25%)
@@ -39,9 +39,9 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 
 | Deliverable | Status | Evidence / completion condition |
 |---|---|---|
-| Measured latency on declared hardware | Missing | Honest benchmark harness exists; no trained weights have been timed. |
+| Measured latency on declared hardware | Complete for available CPU | 1,000 warmed iterations per trained checkpoint with p50/p95/p99/FPS and hashes in `reports/deployment/`; no Jetson claim. |
 | Orin Nano change analysis | Complete | `docs/DEPLOYMENT.md`. |
-| Quantisation accuracy cost | Missing | Export guard/tool exists; needs FP32/FP16/INT8 weights evaluated on the same test set. |
+| Quantisation accuracy cost | Pending target runtime and real calibration set | Readiness audit proves CUDA/TensorRT and representative INT8 calibration data are absent; the required comparison protocol is documented without fabricated numbers. |
 | Failure contract | Complete | Versioned assessment schema and explicit abstention. |
 | Multi-frame use | Complete design | Cadenced runtime schedule and uncertainty-aware temporal policy documented. |
 

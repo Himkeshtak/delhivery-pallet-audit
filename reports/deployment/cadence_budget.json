@@ -1,0 +1,9 @@
+{
+  "scope": "derived from measured component mean service times; not a measured percentile",
+  "pose_mean_service_ms": 64.6632086999598,
+  "segment_mean_service_ms": 67.32706950005377,
+  "segment_cadence_frames": 3,
+  "derived_cadence_mean_service_ms_per_frame": 87.10556519997772,
+  "derived_cadence_fps": 11.480322729141259,
+  "fifteen_fps_gate": false
+}

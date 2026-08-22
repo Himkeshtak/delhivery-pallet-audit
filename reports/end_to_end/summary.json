@@ -50,6 +50,11 @@
       "p95": 79.21982497209682,
       "p99": 94.4276329845888
     },
+    "pose_plus_segment": {
+      "p50": 100.49415001412854,
+      "p95": 148.31615497823805,
+      "p99": 1048.5602690017477
+    },
     "note": "first image includes model setup; use benchmark_model.py for steady state"
   }
 }

@@ -32,6 +32,7 @@ def main() -> None:
     checks: dict[str, Counter[str]] = defaultdict(Counter)
     pose_latency: list[float] = []
     segment_latency: list[float] = []
+    combined_latency: list[float] = []
     experimental_alignment_failures = 0
     for record in records:
         for check in record["checks"]:
@@ -41,6 +42,8 @@ def main() -> None:
             pose_latency.append(float(latency["pose"]))
         if "segment" in latency:
             segment_latency.append(float(latency["segment"]))
+        if "pose" in latency and "segment" in latency:
+            combined_latency.append(float(latency["pose"]) + float(latency["segment"]))
         experimental = record["provenance"].get("experimental_evidence", {})
         experimental_alignment_failures += int(
             bool(experimental.get("would_fail_sop3", False))
@@ -63,6 +66,7 @@ def main() -> None:
         "observed_latency_ms_including_framework_overhead": {
             "pose": percentiles(pose_latency),
             "segment": percentiles(segment_latency),
+            "pose_plus_segment": percentiles(combined_latency),
             "note": "first image includes model setup; use benchmark_model.py for steady state",
         },
     }

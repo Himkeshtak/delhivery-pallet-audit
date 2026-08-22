@@ -1,0 +1,49 @@
+{
+  "scope": "synthetic-v1 shifted test; not a physical operating envelope",
+  "criterion": "one-sided 95% Wilson lower bound on joint success rate >=0.95",
+  "yaw_bins": [
+    {
+      "absolute_yaw_deg": [
+        0,
+        15
+      ],
+      "samples": 28,
+      "translation_error_m_p95": 0.04725750097588016,
+      "rotation_error_deg_p95": 3.0583155465154217,
+      "joint_2cm_3deg_successes": 11,
+      "joint_2cm_3deg_rate": 0.39285714285714285,
+      "joint_rate_one_sided_95pct_wilson_lower": 0.2570195401903508,
+      "accepted_at_95pct_required_rate": false
+    },
+    {
+      "absolute_yaw_deg": [
+        15,
+        30
+      ],
+      "samples": 23,
+      "translation_error_m_p95": 0.047195284401126684,
+      "rotation_error_deg_p95": 3.6128925127024893,
+      "joint_2cm_3deg_successes": 10,
+      "joint_2cm_3deg_rate": 0.43478260869565216,
+      "joint_rate_one_sided_95pct_wilson_lower": 0.2806738753056511,
+      "accepted_at_95pct_required_rate": false
+    },
+    {
+      "absolute_yaw_deg": [
+        30,
+        45
+      ],
+      "samples": 9,
+      "translation_error_m_p95": 0.04096784303758414,
+      "rotation_error_deg_p95": 3.7534232012867217,
+      "joint_2cm_3deg_successes": 3,
+      "joint_2cm_3deg_rate": 0.3333333333333333,
+      "joint_rate_one_sided_95pct_wilson_lower": 0.14197090179499508,
+      "accepted_at_95pct_required_rate": false
+    }
+  ],
+  "accepted_yaw_bins": [],
+  "range_evaluable": false,
+  "range_reason": "synthetic-v1 has no surveyed camera-to-pallet range and cannot support a short/mid/long range claim",
+  "operational_envelope_declared": false
+}

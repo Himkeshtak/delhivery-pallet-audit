@@ -1,0 +1,25 @@
+{
+  "measured_at": "2026-08-22T15:57:26.280508+00:00",
+  "weights": "weights\\load_seg_yolo11n_synthetic_v1.pt",
+  "weights_sha256": "94a850c4fef973b2d59dc5def8a3fafb049918625557035fc41b7763651a7b97",
+  "device_argument": "cpu",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel(R) Core(TM) Ultra 5 125U",
+  "python": "3.13.5",
+  "torch": "2.8.0+cpu",
+  "ultralytics": "8.3.179",
+  "image_count": 60,
+  "imgsz": 256,
+  "warmup": 20,
+  "iterations": 1000,
+  "batch_size": 1,
+  "confidence_threshold": 0.05,
+  "latency": {
+    "p50_ms": 62.22140000318177,
+    "p90_ms": 87.48839999898337,
+    "p95_ms": 99.62793501326807,
+    "p99_ms": 120.80590598925481
+  },
+  "end_to_end_fps": 14.8528668695316,
+  "scope": "decode/preprocess/inference/postprocess through model.predict; excludes application serialization"
+}

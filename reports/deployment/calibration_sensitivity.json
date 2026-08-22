@@ -1,0 +1,74 @@
+{
+  "scope": "first-order Monte Carlo assumptions; not physical calibration evidence",
+  "camera_height_m": 1.2,
+  "nominal_tilt_deg": 20.0,
+  "samples_per_range": 10000,
+  "note": "For a fixed floor range, nominal tilt changes the image location; the range error depends on the tilt calibration perturbation.",
+  "ranges": [
+    {
+      "range_m": 1.0,
+      "nominal_tilt_deg": 20.0,
+      "assumed_height_sigma_m": 0.01,
+      "assumed_tilt_sigma_deg": 0.25,
+      "translation_error_m": {
+        "p50": 0.008186253257275511,
+        "p90": 0.02001203438389082,
+        "p95": 0.023959642683076585,
+        "p99": 0.031968038654483034
+      },
+      "meets_2cm_rate": 0.8997
+    },
+    {
+      "range_m": 2.0,
+      "nominal_tilt_deg": 20.0,
+      "assumed_height_sigma_m": 0.01,
+      "assumed_tilt_sigma_deg": 0.25,
+      "translation_error_m": {
+        "p50": 0.017164680620118333,
+        "p90": 0.04249928554731861,
+        "p95": 0.05069465858142006,
+        "p99": 0.06735954110473176
+      },
+      "meets_2cm_rate": 0.569
+    },
+    {
+      "range_m": 3.0,
+      "nominal_tilt_deg": 20.0,
+      "assumed_height_sigma_m": 0.01,
+      "assumed_tilt_sigma_deg": 0.25,
+      "translation_error_m": {
+        "p50": 0.031134217854429602,
+        "p90": 0.07550765821301711,
+        "p95": 0.0902042523866288,
+        "p99": 0.11669799163541383
+      },
+      "meets_2cm_rate": 0.337
+    },
+    {
+      "range_m": 4.0,
+      "nominal_tilt_deg": 20.0,
+      "assumed_height_sigma_m": 0.01,
+      "assumed_tilt_sigma_deg": 0.25,
+      "translation_error_m": {
+        "p50": 0.04871115786694169,
+        "p90": 0.11756210251626449,
+        "p95": 0.14103084952985717,
+        "p99": 0.1885613354757736
+      },
+      "meets_2cm_rate": 0.2258
+    },
+    {
+      "range_m": 5.0,
+      "nominal_tilt_deg": 20.0,
+      "assumed_height_sigma_m": 0.01,
+      "assumed_tilt_sigma_deg": 0.25,
+      "translation_error_m": {
+        "p50": 0.06999623451216008,
+        "p90": 0.17011805330370422,
+        "p95": 0.2055144261682911,
+        "p99": 0.270713338636268
+      },
+      "meets_2cm_rate": 0.1505
+    }
+  ]
+}

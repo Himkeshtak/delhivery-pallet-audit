@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-08-22T15:53:49.526839+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.8.0+cpu",
+  "cuda_available": false,
+  "cuda_device": null,
+  "modules": {
+    "tensorrt": false,
+    "onnx": false,
+    "onnxruntime": true
+  },
+  "tensorrt_fp16_export_ready": false,
+  "tensorrt_int8_export_ready": false,
+  "quantization_accuracy_comparison_complete": false,
+  "blocking_reasons": [
+    "No CUDA device or TensorRT runtime is available on this workstation.",
+    "No real representative calibration set exists for production INT8 calibration.",
+    "Accuracy must be compared on the target-scene frozen test set, not synthetic data alone."
+  ],
+  "claim_scope": "readiness audit only; not a Jetson benchmark"
+}
