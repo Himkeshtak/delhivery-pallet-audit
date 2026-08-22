@@ -1,0 +1,46 @@
+{
+  "scope": "synthetic-v1 held-out test_shift; not warehouse performance",
+  "weights": "weights\\pallet_pose_yolo11n_synthetic_v1.pt",
+  "records": 60,
+  "detections": 60,
+  "missed_detections": 0,
+  "detection_recall": 1.0,
+  "abstentions_among_detections": 0,
+  "translation_error_m": {
+    "p50": 0.020982579169086808,
+    "p90": 0.041607334185014826,
+    "p95": 0.04791568451201945,
+    "p99": 0.05597943235840251
+  },
+  "rotation_error_deg": {
+    "p50": 1.4056468179258275,
+    "p90": 3.0859187542074467,
+    "p95": 3.67794191132451,
+    "p99": 4.597689429211933
+  },
+  "keypoint_localization_error_px": {
+    "p50": 4.14348772097348,
+    "p90": 7.322377064620639,
+    "p95": 7.93521501325595,
+    "p99": 10.442750391244246
+  },
+  "detection_confidence": {
+    "p50": 0.9166169762611389,
+    "p90": 0.9408860504627228,
+    "p95": 0.9467384666204453,
+    "p99": 0.9505212563276291
+  },
+  "joint_2cm_3deg_rate_all_images": 0.4,
+  "latency_ms_observed": {
+    "p50": 165.40635001729243,
+    "p90": 263.5815500107128,
+    "p95": 272.23410998121835,
+    "p99": 5621.460708017067
+  },
+  "runtime": {
+    "torch": "2.8.0+cpu",
+    "ultralytics": "8.3.179",
+    "device": "cpu",
+    "imgsz": 256
+  }
+}

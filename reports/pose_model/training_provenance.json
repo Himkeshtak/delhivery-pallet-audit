@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-08-22T15:16:14.521045+00:00",
+  "task": "pose",
+  "initial_weights": "weights/downloads/yolo11n-pose.pt",
+  "data": "D:\\Delhivery Assignment\\data\\pallet_pose.yaml",
+  "epochs": 20,
+  "imgsz": 256,
+  "batch": 8,
+  "seed": 17,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "ultralytics_version": "8.3.179",
+  "workers": 0,
+  "amp": false,
+  "fraction": 1.0,
+  "elapsed_seconds": 1176.3761443000403,
+  "claim_scope": "measured on the platform field above"
+}

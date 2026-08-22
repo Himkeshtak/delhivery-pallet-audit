@@ -4,7 +4,7 @@ A fail-safe reference implementation for the Delhivery Computer Vision assignmen
 
 The research-backed model selection, paper comparison, and experiment gates are in [docs/RESEARCH_AND_MODEL_SELECTION.md](docs/RESEARCH_AND_MODEL_SELECTION.md).
 
-> **Submission status:** the geometry, output contract, synthetic data tooling, evaluation, sensitivity analysis, and tests are implemented. Real warehouse data, trained detector weights, physical calibration images, and measured hardware benchmarks are not included because they cannot be honestly created from the supplied PDF alone. The exact collection/training protocol is provided below. The system explicitly abstains instead of substituting fabricated evidence.
+> **Submission status:** the geometry, output contract, versioned synthetic dataset, trained synthetic pose weights, evaluation, sensitivity analysis, and tests are implemented. Real warehouse data, physical calibration images, trained production load/damage weights, Jetson measurements and the screen recording remain unavailable. Synthetic results are clearly scoped and are never presented as warehouse performance.
 
 ## Quick start
 
@@ -65,7 +65,20 @@ Every assessment contains metric pose and uncertainty, per-check measurement/con
 
 ## 2. Results
 
-No warehouse test set was supplied or captured, so no real-world accuracy is claimed. Reporting invented AP or pose error would violate the assignment's central requirement. The repository instead provides executable distribution reporting:
+No warehouse test set was supplied or captured, so no real-world accuracy is claimed. Reporting invented AP or pose error would violate the assignment's central requirement. A YOLO11n pose model was fine-tuned on the committed `synthetic-v1` dataset and evaluated on a shifted synthetic test domain:
+
+| Held-out synthetic-v1 metric | Result |
+|---|---:|
+| Detection recall | 100% |
+| Box mAP50-95 | 0.966 |
+| Pose mAP50-95 | 0.995 |
+| Translation error p50 / p95 | 2.10 cm / 4.79 cm |
+| Rotation error p50 / p95 | 1.41 deg / 3.68 deg |
+| Joint 2 cm / 3 deg success | 40.0% |
+
+The weight is `weights/pallet_pose_yolo11n_synthetic_v1.pt`; complete provenance and distributions are in `reports/pose_model/`. The result demonstrates why OKS/AP cannot replace metric pose evaluation: the model does **not** clear the assignment bar on most shifted-domain samples.
+
+Distribution tooling remains executable for future real records:
 
 ```bash
 python tools/evaluate_pose.py evaluation_records.json -o pose_metrics.json
@@ -78,17 +91,17 @@ The acceptance gate is the joint held-out rate, stratified by range (0-2, 2-4, >
 
 ## 3. Failure analysis
 
-The three expected worst cases, to be replaced with actual held-out images after collection:
+The three actual worst cases from the shifted synthetic held-out split are:
 
-1. **Rear corners hidden by cartons:** corner hallucination shifts the centre. Root cause: single-side occlusion. Mitigation: reject low corner confidence; add a second camera or temporal multi-view evidence.
-2. **Wet stretch wrap and glare:** specular edges resemble pallet boards and hide box edges. Root cause: domain gap. Mitigation: polarized lighting, glare augmentation, and wrap-specific hard negatives.
-3. **Long range with shallow ray-floor angle:** a small pixel/tilt error creates a large metric error. Root cause: projective geometry, not model capacity. Mitigation: surveyed extrinsics, restrict the operating envelope, or raise/change camera angle.
+1. **Glare-driven coherent shift:** 6.5 cm / 1.1 deg. All four corners move together under the test glare/palette shift, so confidence does not reveal the metric bias. ![Worst glare case](reports/pose_model/failures/worst_1.jpg)
+2. **Wrap/load edge competition:** 5.0 cm / 2.9 deg. The bright load outline competes with the pallet rear edge and expands the footprint. ![Worst wrap case](reports/pose_model/failures/worst_2.jpg)
+3. **Shallow apparent depth:** 3.6 cm / 4.2 deg. Asymmetric rear-corner error produces a large angle change. ![Worst angle case](reports/pose_model/failures/worst_3.jpg)
 
-The review notebook/images cannot be truthfully populated without captures. `tools/evaluate_pose.py` is designed to rank samples by combined normalized error so actual worst cases can be exported during evaluation.
+Exact errors and predictions are committed in `reports/pose_model/`. Real warehouse worst cases must still replace or accompany these synthetic examples after capture.
 
 ## 4. What could not be finished and why
 
-- Real dataset and weights: access to the linked Roboflow workspace and license confirmation were not provided; target-scene capture is essential for honest evaluation.
+- Real dataset and production weights: a synthetic dataset and pose checkpoint are included, but target-scene capture is essential for operational evaluation.
 - Calibration artefacts/reprojection error: requires the physical camera and board images. The repository defines the required process in [docs/CALIBRATION.md](docs/CALIBRATION.md).
 - True SOP vision models: box masks, wrap, and damage labels require collected data. The assessment logic consumes their evidence without claiming it exists.
 - Jetson Orin Nano latency/quantization: no target hardware or exported weights were available. No third-party benchmark is presented as measured performance.

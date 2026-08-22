@@ -1,0 +1,27 @@
+{
+  "scope": "dataset=data\\pallet_pose.yaml, split=test; obey that dataset's claim scope",
+  "weights": "weights\\pallet_pose_yolo11n_synthetic_v1.pt",
+  "results": {
+    "metrics/precision(B)": 0.9990273274262352,
+    "metrics/recall(B)": 1.0,
+    "metrics/mAP50(B)": 0.995,
+    "metrics/mAP50-95(B)": 0.9663276944009264,
+    "metrics/precision(P)": 0.9990273274262352,
+    "metrics/recall(P)": 1.0,
+    "metrics/mAP50(P)": 0.995,
+    "metrics/mAP50-95(P)": 0.9949999999999999,
+    "fitness": 1.9641949249608337
+  },
+  "speed_ms_per_image": {
+    "preprocess": 0.5718850006815046,
+    "inference": 42.549250001320615,
+    "loss": 0.00021999876480549574,
+    "postprocess": 1.7277566657867283
+  },
+  "runtime": {
+    "torch": "2.8.0+cpu",
+    "ultralytics": "8.3.179",
+    "device": "cpu",
+    "imgsz": 256
+  }
+}

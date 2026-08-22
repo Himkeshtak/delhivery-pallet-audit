@@ -1,0 +1,41 @@
+[
+  {
+    "rank": 1,
+    "file": "worst_1.jpg",
+    "source_image": "pallet_pose/images/test/test_0035.jpg",
+    "translation_error_m": 0.06514750862989273,
+    "rotation_error_deg": 1.1358280828312104,
+    "keypoint_errors_px": [
+      7.835486758505644,
+      5.090719137908517,
+      8.74994773064024,
+      6.369937828945941
+    ]
+  },
+  {
+    "rank": 2,
+    "file": "worst_2.jpg",
+    "source_image": "pallet_pose/images/test/test_0020.jpg",
+    "translation_error_m": 0.04960839630533313,
+    "rotation_error_deg": 2.896065773140066,
+    "keypoint_errors_px": [
+      5.0603605027269385,
+      7.408721231035878,
+      6.2234643509584755,
+      4.08754886116443
+    ]
+  },
+  {
+    "rank": 3,
+    "file": "worst_3.jpg",
+    "source_image": "pallet_pose/images/test/test_0052.jpg",
+    "translation_error_m": 0.03625790440692712,
+    "rotation_error_deg": 4.202218407995559,
+    "keypoint_errors_px": [
+      1.249522077535283,
+      7.267482203152241,
+      8.346926455923597,
+      3.3177525094347966
+    ]
+  }
+]

@@ -9,8 +9,8 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 | Dataset in a standard format | Complete, synthetic-only | Committed `synthetic-v1`: 360 images, COCO keypoints and separate YOLO pose/segmentation labels. Real warehouse data remains absent. |
 | Annotation tooling | Complete | `tools/generate_synthetic.py`, `tools/coco_to_yolo_pose.py`, COCO keypoint convention and labelling guide. SAM 2 is specified for offline propagation. |
 | Source, cost, counts, split, guideline, biases | Complete for synthetic-v1 | `DATASET.md` and `data/dataset_manifest.json`; real count is explicitly zero. |
-| Trained model and weights | Missing | Training scripts/configs exist; no trained checkpoint has been produced. |
-| Detection/localisation held-out distributions | Missing | Evaluation tool exists; no model/test predictions yet. |
+| Trained model and weights | Partial | YOLO11n pose checkpoint is committed; load segmentation and damage models remain pending. |
+| Detection/localisation held-out distributions | Complete, synthetic-only | `reports/pose_model/`: separate AP, pixel keypoint error, metric translation/rotation and predictions. |
 | Training decisions and reasoning | Complete | `README.md` and `docs/RESEARCH_AND_MODEL_SELECTION.md`. |
 | Accuracy ceiling and improvements | Complete | `DATASET.md`. |
 
@@ -21,9 +21,9 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 | Camera calibration artefacts and reprojection error | Pending physical camera | Protocol exists in `docs/CALIBRATION.md`; target camera/board images are unavailable. A synthetic calibration can test code but cannot substitute for this measurement. |
 | Pose method and reasoning | Complete | Calibrated floor homography, directed keypoints and propagated uncertainty in `geometry.py`. |
 | Self-constructed evaluation | Partial | Survey protocol and distribution tool exist. Needs physical surveyed placements or declared synthetic benchmark records. |
-| Translation/rotation error distributions | Missing | Needs trained predictions and ground truth. |
+| Translation/rotation error distributions | Complete, synthetic-only | p50/p90/p95/p99 in `reports/pose_model/pose_test_metrics.json`; real survey evaluation remains pending. |
 | Height/tilt sensitivity, short/long range | Partial | Monte Carlo tool exists; measured camera uncertainty is unavailable. |
-| Usable envelope | Missing | Requires held-out range/yaw results. |
+| Usable envelope | Pending real data | Synthetic test joint pass rate is only 40%; no operational envelope can be declared. |
 | Unreliable-pose output | Complete | Explicit `reliable=false`, uncertainty, reason and manual-inspection verdict. |
 
 ## Section 3 - Load analysis and SOP (25%)
@@ -52,7 +52,7 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 | One assessment per pallet | Complete | CLI, `schemas/assessment.schema.json`, example request/output path. |
 | README required sections | Structurally complete | Real result plots and three actual worst-case images remain unavailable. |
 | Dataset | Complete, synthetic-only | Versioned generator, manifest, COCO and YOLO artefacts are committed. Real validation is still required for operational claims. |
-| Trained weights or link | Missing | Must train and publish checkpoints. |
+| Trained weights or link | Partial | Synthetic YOLO11n pose weight is committed; load/damage weights remain pending. |
 | Five-minute screen recording | Missing, requires submitter | A recording runbook can be produced; the submitter must record the final trained pipeline and narration. |
 
 ## Current completion conclusion
