@@ -1,0 +1,22 @@
+{
+  "image_id": "demo-frame-001",
+  "pallet_id": "pallet-001",
+  "model_version": "manual-keypoints-demo",
+  "camera": {
+    "homography_image_to_floor": [[0.005, 0.0, -1.0], [0.0, 0.005, -0.5], [0.0, 0.0, 1.0]],
+    "reprojection_rmse_px": 0.35
+  },
+  "keypoints_px": [[200, 200], [440, 200], [440, 400], [200, 400]],
+  "keypoint_confidences": [0.94, 0.96, 0.91, 0.90],
+  "evidence": {
+    "overhang_m": 0.02,
+    "load_height_m": 1.55,
+    "box_angles_deg": [1.5, 3.0, 2.2],
+    "wrap_probability": 0.91,
+    "damage_probability": 0.05,
+    "centroid_offset_m": 0.04,
+    "pallet_damage_probability": 0.08,
+    "visibility": 0.88
+  }
+}
+

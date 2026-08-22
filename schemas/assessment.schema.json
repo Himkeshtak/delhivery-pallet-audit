@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PalletAssessment",
+  "type": "object",
+  "required": ["schema_version", "image_id", "pallet_id", "pose", "checks", "overall_verdict", "reasons", "provenance"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "image_id": {"type": "string"},
+    "pallet_id": {"type": "string"},
+    "pose": {"type": "object", "required": ["x_m", "y_m", "theta_deg", "sigma_x_m", "sigma_y_m", "sigma_theta_deg", "confidence", "reliable"]},
+    "checks": {"type": "array", "minItems": 8, "maxItems": 8},
+    "overall_verdict": {"enum": ["pass", "fail", "manual_inspection", "not_verifiable"]},
+    "reasons": {"type": "array", "items": {"type": "string"}},
+    "provenance": {"type": "object"}
+  }
+}
+
