@@ -1,0 +1,22 @@
+# Reproducible baseline candidates. Final selection must use held-out downstream metrics.
+pose:
+  candidates: [yolo11n-pose.pt, yolo11s-pose.pt]
+  data: configs/pallet_pose.yaml
+  epochs: 150
+  imgsz: 960
+  batch: 8
+  patience: 30
+segmentation:
+  candidates: [yolo11n-seg.pt, yolo11s-seg.pt]
+  data: configs/load_seg.yaml
+  epochs: 120
+  imgsz: 960
+  batch: 8
+  patience: 25
+deployment:
+  format: engine
+  half: true
+  batch: 1
+  dynamic: false
+  workspace_gb: 2
+

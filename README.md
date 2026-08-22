@@ -2,6 +2,8 @@
 
 A fail-safe reference implementation for the Delhivery Computer Vision assignment. It converts four ordered pallet floor-corner keypoints and monocular load evidence into metric floor pose, uncertainty, eight SOP decisions, and an auditable overall verdict.
 
+The research-backed model selection, paper comparison, and experiment gates are in [docs/RESEARCH_AND_MODEL_SELECTION.md](docs/RESEARCH_AND_MODEL_SELECTION.md).
+
 > **Submission status:** the geometry, output contract, synthetic data tooling, evaluation, sensitivity analysis, and tests are implemented. Real warehouse data, trained detector weights, physical calibration images, and measured hardware benchmarks are not included because they cannot be honestly created from the supplied PDF alone. The exact collection/training protocol is provided below. The system explicitly abstains instead of substituting fabricated evidence.
 
 ## Quick start
@@ -16,6 +18,15 @@ python tools/generate_synthetic.py --count 100
 ```
 
 Install `.[vision]` only for camera calibration and YOLO pose training. The package itself requires only NumPy and Pillow.
+
+Research baseline training and export:
+
+```bash
+python tools/coco_to_yolo_pose.py annotations.json images data/pallet_pose
+python tools/train_models.py pose --model yolo11s-pose.pt --data configs/pallet_pose.yaml
+python tools/train_models.py segment --model yolo11n-seg.pt --data configs/load_seg.yaml
+python tools/export_models.py runs/pose-yolo11s-pose/weights/best.pt --format engine
+```
 
 ## 1. Approach and significant decisions
 
@@ -114,6 +125,8 @@ image -> pallet/box/keypoint models -> calibrated floor projection
 - `schemas/`: versioned assessment contract
 - `docs/`: calibration and deployment protocols
 - `DATASET.md`: sourcing, splitting, annotation policy, biases
+
+The operational capture-to-export checklist is in [docs/DATA_COLLECTION_RUNBOOK.md](docs/DATA_COLLECTION_RUNBOOK.md).
 
 ## License and citations
 
