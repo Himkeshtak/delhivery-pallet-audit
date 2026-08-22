@@ -15,6 +15,7 @@ pip install -e ".[dev]"
 python -m pallet_audit.cli examples/request.json -o assessment.json
 python -m unittest discover -s tests -v
 python tools/generate_synthetic.py --count 100
+python tools/run_trained_pipeline.py data/pallet_pose/images/test -o assessments
 ```
 
 Install `.[vision]` only for camera calibration and YOLO pose training. The package itself requires only NumPy and Pillow.
@@ -86,6 +87,14 @@ operational. The committed weight is
 `weights/load_seg_yolo11n_synthetic_v1.pt`; the complete class-wise result and
 provenance are in `reports/load_seg_model/`. Missing damage detections remain
 `manual_inspection`, never a pass.
+
+The two checkpoints are connected to the complete assessment path in
+`tools/run_trained_pipeline.py`. On all 60 shifted test images it emitted one
+schema-valid assessment per pallet: all 60 correctly route to
+`manual_inspection` because the validated evidence cannot support an overall
+pass. The validation gate also caught that raw box-mask angles would falsely
+fail 46/60 known-aligned scenes; those values are retained as diagnostics but
+are excluded from decisions. See `reports/end_to_end/`.
 
 Distribution tooling remains executable for future real records:
 

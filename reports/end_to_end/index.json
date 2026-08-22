@@ -1,0 +1,422 @@
+[
+  {
+    "image": "data/pallet_pose/images/test/test_0000.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0000_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0001.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0001_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0002.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0002_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0003.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0003_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0004.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0004_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0005.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0005_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0006.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0006_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0007.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0007_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0008.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0008_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0009.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0009_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0010.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0010_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0011.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0011_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0012.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0012_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0013.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0013_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0014.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0014_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0015.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0015_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0016.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0016_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0017.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0017_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0018.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0018_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0019.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0019_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0020.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0020_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0021.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0021_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0022.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0022_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0023.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0023_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0024.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0024_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0025.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0025_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0026.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0026_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0027.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0027_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0028.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0028_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0029.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0029_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0030.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0030_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0031.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0031_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0032.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0032_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0033.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0033_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0034.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0034_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0035.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0035_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0036.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0036_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0037.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0037_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0038.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0038_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0039.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0039_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0040.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0040_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0041.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0041_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0042.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0042_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0043.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0043_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0044.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0044_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0045.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0045_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0046.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0046_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0047.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0047_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0048.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0048_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0049.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0049_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0050.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0050_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0051.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0051_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0052.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0052_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0053.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0053_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0054.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0054_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0055.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0055_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0056.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0056_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0057.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0057_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0058.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0058_pallet-001.json"
+    ]
+  },
+  {
+    "image": "data/pallet_pose/images/test/test_0059.jpg",
+    "detections": 1,
+    "assessment_files": [
+      "reports/end_to_end/test_0059_pallet-001.json"
+    ]
+  }
+]

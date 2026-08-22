@@ -1,0 +1,55 @@
+{
+  "scope": "synthetic-v1 end-to-end demonstration; not warehouse performance",
+  "assessments": 60,
+  "overall_verdict_counts": {
+    "manual_inspection": 60
+  },
+  "pose_reliability_counts": {
+    "true": 60
+  },
+  "per_sop_verdict_counts": {
+    "1": {
+      "manual_inspection": 60
+    },
+    "2": {
+      "manual_inspection": 60
+    },
+    "3": {
+      "manual_inspection": 60
+    },
+    "4": {
+      "manual_inspection": 60
+    },
+    "5": {
+      "manual_inspection": 57,
+      "pass": 3
+    },
+    "6": {
+      "manual_inspection": 60
+    },
+    "7": {
+      "manual_inspection": 60
+    },
+    "8": {
+      "manual_inspection": 60
+    }
+  },
+  "experimental_gate_diagnostics": {
+    "raw_box_alignment_would_fail": 46,
+    "known_aligned_scenes": 60,
+    "accepted_for_decisions": false
+  },
+  "observed_latency_ms_including_framework_overhead": {
+    "pose": {
+      "p50": 46.49034998146817,
+      "p95": 68.81541998300236,
+      "p99": 954.1326360171588
+    },
+    "segment": {
+      "p50": 53.85705002117902,
+      "p95": 79.21982497209682,
+      "p99": 94.4276329845888
+    },
+    "note": "first image includes model setup; use benchmark_model.py for steady state"
+  }
+}

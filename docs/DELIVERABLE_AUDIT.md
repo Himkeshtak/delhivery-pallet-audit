@@ -31,7 +31,7 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 | Deliverable | Status | Evidence / completion condition |
 |---|---|---|
 | Eight-check observability triage | Complete | README SOP table. |
-| Implement verifiable subset | Complete as synthetic baseline | Metric overhang, height, box angle, centroid, wrap/damage evidence interfaces and fail-safe abstention. The trained segmentation baseline has zero held-out AP on damage, so damage remains manual. |
+| Implement verifiable subset | Complete as synthetic baseline | `run_trained_pipeline.py` connects both checkpoints to eight checks. Failed downstream gates suppress box-angle, load-mask and damage evidence instead of creating unsafe decisions. |
 | Per-check confidence | Complete | Every check emits confidence, measurements and reason. |
 | Pass/fail/manual verdict and weighting | Complete | `compliance.py`; pose failure forces manual review and reliable high-confidence failures dominate. |
 
@@ -49,7 +49,7 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 
 | Deliverable | Status | Evidence / completion condition |
 |---|---|---|
-| One assessment per pallet | Complete | CLI, `schemas/assessment.schema.json`, example request/output path. |
+| One assessment per pallet | Complete | Trained pipeline emitted 60 separate schema-valid held-out assessment JSON files plus an index and summary in `reports/end_to_end/`. |
 | README required sections | Complete for synthetic scope | Measured pose/segmentation results and three actual shifted-test pose failures are included. Real failures remain unavailable. |
 | Dataset | Complete, synthetic-only | Versioned generator, manifest, COCO and YOLO artefacts are committed. Real validation is still required for operational claims. |
 | Trained weights or link | Complete, synthetic-only | Synthetic YOLO11n pose and six-class load-segmentation weights are committed. The damage classes explicitly fail the acceptance gate. |

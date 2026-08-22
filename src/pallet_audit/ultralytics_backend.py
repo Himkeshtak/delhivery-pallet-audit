@@ -17,16 +17,21 @@ class PalletKeypointDetection:
 
 
 class UltralyticsPoseBackend:
-    def __init__(self, weights: str | Path, device: str | int | None = None) -> None:
+    def __init__(self, weights: str | Path, device: str | int | None = None,
+                 imgsz: int | None = None) -> None:
         try:
             from ultralytics import YOLO
         except ImportError as exc:
             raise RuntimeError('install the vision extra: pip install -e ".[vision]"') from exc
         self.model = YOLO(str(weights))
         self.device = device
+        self.imgsz = imgsz
 
     def predict(self, image: Any, confidence: float = 0.25) -> list[PalletKeypointDetection]:
-        results = self.model.predict(image, conf=confidence, device=self.device, verbose=False)
+        options = {"conf": confidence, "device": self.device, "verbose": False}
+        if self.imgsz is not None:
+            options["imgsz"] = self.imgsz
+        results = self.model.predict(image, **options)
         detections: list[PalletKeypointDetection] = []
         for result in results:
             if result.keypoints is None or result.boxes is None:
@@ -55,4 +60,3 @@ def mask_polygons(result: Any, class_names: set[str] | None = None) -> list[tupl
         if class_names is None or name in class_names:
             output.append((name, float(score), np.asarray(polygon, dtype=float)))
     return output
-

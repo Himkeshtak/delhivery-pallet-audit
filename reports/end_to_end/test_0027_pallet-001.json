@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0",
+  "image_id": "test_0027.jpg",
+  "pallet_id": "pallet-001",
+  "pose": {
+    "x_m": -0.49997098445892324,
+    "y_m": 0.8373618125915528,
+    "theta_deg": 5.4474170129795425,
+    "sigma_x_m": 0.004564354645876383,
+    "sigma_y_m": 0.004564354645876388,
+    "sigma_theta_deg": 0.5511384165114706,
+    "confidence": 0.7467432022094727,
+    "reliable": true,
+    "reason": ""
+  },
+  "checks": [
+    {
+      "sop_id": 1,
+      "name": "box overhang",
+      "verdict": "manual_inspection",
+      "confidence": 0.7467432022094727,
+      "measured": {},
+      "reason": "insufficient reliable evidence"
+    },
+    {
+      "sop_id": 2,
+      "name": "load height",
+      "verdict": "manual_inspection",
+      "confidence": 0.7467432022094727,
+      "measured": {},
+      "reason": "insufficient reliable evidence"
+    },
+    {
+      "sop_id": 3,
+      "name": "column alignment",
+      "verdict": "manual_inspection",
+      "confidence": 0.7467432022094727,
+      "measured": {},
+      "reason": "insufficient reliable evidence"
+    },
+    {
+      "sop_id": 4,
+      "name": "size ordering",
+      "verdict": "manual_inspection",
+      "confidence": 0.29869728088378905,
+      "measured": {
+        "visible_inversion_score": 0.0
+      },
+      "reason": "rear and occluded boxes cannot be verified from one view"
+    },
+    {
+      "sop_id": 5,
+      "name": "stretch wrap",
+      "verdict": "manual_inspection",
+      "confidence": 0.7467432022094727,
+      "measured": {},
+      "reason": "insufficient reliable evidence"
+    },
+    {
+      "sop_id": 6,
+      "name": "visible box damage",
+      "verdict": "manual_inspection",
+      "confidence": 0.0,
+      "measured": {
+        "damage_probability": 0
+      },
+      "reason": "only visible faces are assessable"
+    },
+    {
+      "sop_id": 7,
+      "name": "load centring",
+      "verdict": "manual_inspection",
+      "confidence": 0.7467432022094727,
+      "measured": {},
+      "reason": "insufficient reliable evidence"
+    },
+    {
+      "sop_id": 8,
+      "name": "pallet damage",
+      "verdict": "manual_inspection",
+      "confidence": 0.0,
+      "measured": {
+        "damage_probability": 0
+      },
+      "reason": "hidden boards and rear stringers are not visible"
+    }
+  ],
+  "overall_verdict": "manual_inspection",
+  "reasons": [
+    "SOP-1 needs inspection: box overhang",
+    "SOP-2 needs inspection: load height",
+    "SOP-3 needs inspection: column alignment",
+    "SOP-4 needs inspection: size ordering",
+    "SOP-5 needs inspection: stretch wrap",
+    "SOP-6 needs inspection: visible box damage",
+    "SOP-7 needs inspection: load centring",
+    "SOP-8 needs inspection: pallet damage"
+  ],
+  "provenance": {
+    "model_version": "pose-yolo11n+seg-yolo11n-synthetic-v1",
+    "assessed_at": "2026-08-22T15:45:58.042278+00:00",
+    "pose_sha256": "8c431fe1dc0891cf818577da3bf67de91a5421bea76e7f298d431661676c3cdd",
+    "segment_sha256": "94a850c4fef973b2d59dc5def8a3fafb049918625557035fc41b7763651a7b97",
+    "image_sha256": "eadd642224066c80a01f29fee7a9d36f46d988d1680fb10b8ed92e133ff0ae3a",
+    "device": "cpu",
+    "imgsz": 256,
+    "latency_ms": {
+      "pose": 37.29780000867322,
+      "segment": 43.364199984353036
+    },
+    "associated_detections": [
+      {
+        "class": "box",
+        "confidence": 0.9539440274238586
+      },
+      {
+        "class": "box",
+        "confidence": 0.9502983689308167
+      },
+      {
+        "class": "box",
+        "confidence": 0.9422376751899719
+      },
+      {
+        "class": "pallet",
+        "confidence": 0.9184309840202332
+      },
+      {
+        "class": "box",
+        "confidence": 0.9108437895774841
+      },
+      {
+        "class": "box",
+        "confidence": 0.7872803807258606
+      },
+      {
+        "class": "box",
+        "confidence": 0.7590907216072083
+      },
+      {
+        "class": "box",
+        "confidence": 0.7584617137908936
+      },
+      {
+        "class": "box",
+        "confidence": 0.6432093977928162
+      },
+      {
+        "class": "box",
+        "confidence": 0.6202396750450134
+      },
+      {
+        "class": "box",
+        "confidence": 0.6029616594314575
+      },
+      {
+        "class": "box",
+        "confidence": 0.4913131594657898
+      },
+      {
+        "class": "box",
+        "confidence": 0.12686438858509064
+      },
+      {
+        "class": "stretch_wrap",
+        "confidence": 0.06201012060046196
+      }
+    ],
+    "experimental_evidence": {
+      "box_angles_deg": [
+        30.17283139416952,
+        38.200286946155785,
+        11.54312364319344,
+        9.627915677338251,
+        1.4221821963049024,
+        7.293150404709536,
+        28.238509281289794,
+        10.965340258583751,
+        5.4474170129795425,
+        39.47055632569385
+      ],
+      "would_fail_sop3": true
+    },
+    "validation_gates": {
+      "box_alignment": "disabled: raw evidence falsely failed 46/60 aligned synthetic scenes",
+      "wrap_presence": "enabled only for positive detections: box mAP50-95=0.833",
+      "load_footprint": "disabled: load mask mAP50-95=0.006",
+      "visible_box_damage": "disabled: held-out AP=0",
+      "visible_pallet_damage": "disabled: held-out AP=0"
+    },
+    "claim_scope": "synthetic-v1 demonstration; not warehouse validated"
+  }
+}
