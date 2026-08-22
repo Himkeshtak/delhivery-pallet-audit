@@ -31,6 +31,14 @@ python tools/export_models.py runs/pose-yolo11s-pose/weights/best.pt --format en
 
 ## 1. Approach and significant decisions
 
+| Decision | Benefit | Cost accepted |
+|---|---|---|
+| Generate a licensed synthetic baseline | Reproducible labels, exact geometry, no copyright ambiguity | Large reality gap; no warehouse accuracy claim |
+| Predict four ordered floor corners | Directed face identity and metric footprint instead of an ambiguous box centre | More annotation effort and sensitivity to occlusion |
+| Use a surveyed floor homography | Identifiable metric scale for a fixed camera without learned depth | A camera/mount change requires recalibration |
+| Start with YOLO11n pose/segmentation | Trainable on available compute and compatible with edge export | Lower capacity; class-wise validation rejects several SOP outputs |
+| Fail safe on missing evidence | Prevents hidden damage or weak masks from becoming a false pass | Lower automation rate; all current end-to-end samples require review |
+
 ### Detection and localization
 
 The proposed production detector is a YOLO pose model with one `pallet` class and four ordered floor-contact keypoints: front-left, front-right, back-right, back-left. A box-only detector was rejected because a rectangle centre does not identify the pallet's labelled front face or give a stable floor-plane footprint. Instance segmentation may improve occlusion handling but costs annotation time and Jetson latency.
@@ -59,6 +67,14 @@ The camera sees one side; therefore absence of visible damage is not proof of no
 | 8. Pallet undamaged | Partial | Positive visible damage can fail; hidden boards remain manual. |
 
 Any reliable high-confidence failure produces `fail`. Otherwise any unverified/low-confidence check produces `manual_inspection`. `pass` is intentionally rare and requires all checks to be observably supported.
+
+Pose confidence is the minimum of the four keypoint confidences. Evidence
+visibility is the minimum pose detection and keypoint confidence. Observable
+appearance checks use that value; metric checks also require a reliable pose and
+are down-weighted to 35% when pose uncertainty fails. A missing measurement or
+confidence below 0.5 becomes manual inspection. Only a supported failure with
+confidence at least 0.6 can dominate the overall verdict. Damage non-detections
+remain manual because a one-sided view cannot prove an undamaged hidden surface.
 
 ### Output contract
 
@@ -166,6 +182,9 @@ image -> pallet/box/keypoint models -> calibrated floor projection
 - `DATASET.md`: sourcing, splitting, annotation policy, biases
 
 The operational capture-to-export checklist is in [docs/DATA_COLLECTION_RUNBOOK.md](docs/DATA_COLLECTION_RUNBOOK.md).
+The exact five-minute demonstration is in [docs/RECORDING_SCRIPT.md](docs/RECORDING_SCRIPT.md),
+and final artefact/external-evidence status is in
+[docs/SUBMISSION_CHECKLIST.md](docs/SUBMISSION_CHECKLIST.md).
 
 ## License and citations
 

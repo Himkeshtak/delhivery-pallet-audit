@@ -1,0 +1,78 @@
+{
+  "dataset_version": "synthetic-v1",
+  "splits": {
+    "train": {
+      "images": 240,
+      "pose_instances": 240,
+      "pose_keypoints": 960,
+      "keypoint_visibility": {
+        "0": 0,
+        "1": 23,
+        "2": 937
+      },
+      "segmentation_instances": {
+        "pallet": 240,
+        "load": 240,
+        "box": 1232,
+        "stretch_wrap": 172,
+        "visible_box_damage": 23,
+        "visible_pallet_damage": 13
+      }
+    },
+    "val": {
+      "images": 60,
+      "pose_instances": 60,
+      "pose_keypoints": 240,
+      "keypoint_visibility": {
+        "0": 0,
+        "1": 4,
+        "2": 236
+      },
+      "segmentation_instances": {
+        "pallet": 60,
+        "load": 60,
+        "box": 306,
+        "stretch_wrap": 46,
+        "visible_box_damage": 6,
+        "visible_pallet_damage": 5
+      }
+    },
+    "test": {
+      "images": 60,
+      "pose_instances": 60,
+      "pose_keypoints": 240,
+      "keypoint_visibility": {
+        "0": 0,
+        "1": 14,
+        "2": 226
+      },
+      "segmentation_instances": {
+        "pallet": 60,
+        "load": 60,
+        "box": 286,
+        "stretch_wrap": 43,
+        "visible_box_damage": 11,
+        "visible_pallet_damage": 5
+      }
+    }
+  },
+  "totals": {
+    "images": 360,
+    "pose_instances": 360,
+    "pose_keypoints": 1440,
+    "keypoint_visibility": {
+      "0": 0,
+      "1": 41,
+      "2": 1399
+    },
+    "segmentation_instances": {
+      "pallet": 360,
+      "load": 360,
+      "box": 1824,
+      "stretch_wrap": 261,
+      "visible_box_damage": 40,
+      "visible_pallet_damage": 23
+    }
+  },
+  "generated_by": "tools/dataset_statistics.py"
+}

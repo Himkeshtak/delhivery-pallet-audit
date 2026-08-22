@@ -41,7 +41,7 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 |---|---|---|
 | Measured latency on declared hardware | Complete for available CPU | 1,000 warmed iterations per trained checkpoint with p50/p95/p99/FPS and hashes in `reports/deployment/`; no Jetson claim. |
 | Orin Nano change analysis | Complete | `docs/DEPLOYMENT.md`. |
-| Quantisation accuracy cost | Pending target runtime and real calibration set | Readiness audit proves CUDA/TensorRT and representative INT8 calibration data are absent; the required comparison protocol is documented without fabricated numbers. |
+| Quantisation accuracy cost | Not applicable: no export | The brief makes this conditional. Readiness audit proves CUDA/TensorRT and representative INT8 data are absent; the future comparison protocol is documented. |
 | Failure contract | Complete | Versioned assessment schema and explicit abstention. |
 | Multi-frame use | Complete design | Cadenced runtime schedule and uncertainty-aware temporal policy documented. |
 
@@ -53,8 +53,14 @@ Audit date: 2026-08-22. `Complete` means an artefact exists and is reproducible.
 | README required sections | Complete for synthetic scope | Measured pose/segmentation results and three actual shifted-test pose failures are included. Real failures remain unavailable. |
 | Dataset | Complete, synthetic-only | Versioned generator, manifest, COCO and YOLO artefacts are committed. Real validation is still required for operational claims. |
 | Trained weights or link | Complete, synthetic-only | Synthetic YOLO11n pose and six-class load-segmentation weights are committed. The damage classes explicitly fail the acceptance gate. |
-| Five-minute screen recording | Missing, requires submitter | A recording runbook can be produced; the submitter must record the final trained pipeline and narration. |
+| Five-minute screen recording | Runbook complete; recording requires submitter | `docs/RECORDING_SCRIPT.md` gives exact commands and timed narration; the submitter must record their screen/voice and provide the link. |
 
 ## Current completion conclusion
 
-The software design is complete, but the assignment is **not submission-complete**. The critical path is: dataset -> trained weights -> frozen-test distributions -> usable envelope -> latency/quantisation -> actual failure cases -> recording. Physical camera calibration and a real warehouse test set cannot be synthesized into truthful evidence.
+The repository is complete for its explicitly synthetic scope: dataset, trained
+weights, frozen-test distributions, failure images, end-to-end assessments,
+sensitivity, a negative envelope, and measured CPU latency are committed. The
+only missing submission file is the human-created five-minute recording. An
+operational warehouse claim additionally requires real target-camera data,
+physical calibration/surveyed ground truth, and Orin Nano measurement; those
+cannot be synthesized into truthful evidence.
